@@ -9,78 +9,102 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      trade_entries: {
+      achievements: {
         Row: {
-          asset: string
-          asset_type: string
-          created_at: string
-          entry_price: number
-          exit_price: number | null
-          fees: number | null
+          date: string
+          description: string
           id: string
-          images: string[] | null
-          notes: string | null
-          profit_loss: number | null
-          profit_loss_percent: number | null
-          quantity: number
-          result: string | null
-          status: string
-          stop_loss: number | null
-          strategy: string | null
-          tags: string[] | null
-          take_profit: number | null
-          trade_date: string
-          trade_type: string
-          updated_at: string
-          user_id: string
+          title: string
+          unlocked: boolean
+          userid: string
         }
         Insert: {
-          asset: string
-          asset_type: string
-          created_at?: string
-          entry_price: number
-          exit_price?: number | null
-          fees?: number | null
+          date?: string
+          description: string
           id?: string
-          images?: string[] | null
-          notes?: string | null
-          profit_loss?: number | null
-          profit_loss_percent?: number | null
-          quantity: number
-          result?: string | null
-          status: string
-          stop_loss?: number | null
-          strategy?: string | null
-          tags?: string[] | null
-          take_profit?: number | null
-          trade_date: string
-          trade_type: string
-          updated_at?: string
-          user_id: string
+          title: string
+          unlocked?: boolean
+          userid: string
         }
         Update: {
-          asset?: string
-          asset_type?: string
-          created_at?: string
-          entry_price?: number
-          exit_price?: number | null
-          fees?: number | null
+          date?: string
+          description?: string
           id?: string
-          images?: string[] | null
-          notes?: string | null
-          profit_loss?: number | null
-          profit_loss_percent?: number | null
-          quantity?: number
-          result?: string | null
-          status?: string
-          stop_loss?: number | null
-          strategy?: string | null
-          tags?: string[] | null
-          take_profit?: number | null
-          trade_date?: string
-          trade_type?: string
-          updated_at?: string
-          user_id?: string
+          title?: string
+          unlocked?: boolean
+          userid?: string
+        }
+        Relationships: []
+      }
+      suggestions: {
+        Row: {
+          category: string
+          createdat: string
+          description: string
+          duedate: string | null
+          estimatedtime: string | null
+          id: string
+          priority: string
+          title: string
+          userid: string
+        }
+        Insert: {
+          category: string
+          createdat?: string
+          description: string
+          duedate?: string | null
+          estimatedtime?: string | null
+          id?: string
+          priority: string
+          title: string
+          userid: string
+        }
+        Update: {
+          category?: string
+          createdat?: string
+          description?: string
+          duedate?: string | null
+          estimatedtime?: string | null
+          id?: string
+          priority?: string
+          title?: string
+          userid?: string
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          completed: boolean
+          createdat: string
+          description: string | null
+          duedate: string
+          id: string
+          priority: string
+          title: string
+          updatedat: string
+          userid: string
+        }
+        Insert: {
+          completed?: boolean
+          createdat?: string
+          description?: string | null
+          duedate: string
+          id?: string
+          priority: string
+          title: string
+          updatedat?: string
+          userid: string
+        }
+        Update: {
+          completed?: boolean
+          createdat?: string
+          description?: string | null
+          duedate?: string
+          id?: string
+          priority?: string
+          title?: string
+          updatedat?: string
+          userid?: string
         }
         Relationships: []
       }
@@ -88,32 +112,38 @@ export type Database = {
         Row: {
           avatar: string | null
           bio: string | null
-          email: string | null
+          createdat: string
+          email: string
           id: string
-          joindate: string | null
+          joindate: string
           location: string | null
-          name: string | null
+          name: string
           phone: string | null
+          updatedat: string
         }
         Insert: {
           avatar?: string | null
           bio?: string | null
-          email?: string | null
+          createdat?: string
+          email: string
           id: string
-          joindate?: string | null
+          joindate?: string
           location?: string | null
-          name?: string | null
+          name: string
           phone?: string | null
+          updatedat?: string
         }
         Update: {
           avatar?: string | null
           bio?: string | null
-          email?: string | null
+          createdat?: string
+          email?: string
           id?: string
-          joindate?: string | null
+          joindate?: string
           location?: string | null
-          name?: string | null
+          name?: string
           phone?: string | null
+          updatedat?: string
         }
         Relationships: []
       }

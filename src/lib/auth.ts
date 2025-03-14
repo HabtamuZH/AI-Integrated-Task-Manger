@@ -26,18 +26,16 @@ export async function signUp(
 
     console.log("Auth user created successfully, ID:", authData.user.id);
 
-    const { error: profileError } = await supabase.from("users").insert([
-      {
-        id: authData.user.id,
-        email: authData.user.email,
-        name: userData.name,
-        avatar: userData.avatar,
-        phone: userData.phone || null,
-        location: userData.location,
-        bio: userData.bio,
-        joindate: new Date().toISOString(),
-      },
-    ]);
+    const { error: profileError } = await supabase.from("users").insert({
+      id: authData.user.id,
+      email: authData.user.email,
+      name: userData.name,
+      avatar: userData.avatar,
+      phone: userData.phone || null,
+      location: userData.location,
+      bio: userData.bio,
+      joinDate: new Date().toISOString(), // Matches TypeScript type and should match table
+    });
 
     if (profileError) {
       console.error("Error creating user profile:", profileError);
@@ -52,6 +50,7 @@ export async function signUp(
   }
 }
 
+// Rest of auth.ts remains unchanged (signIn, signOut, getCurrentUser, resetPassword)
 export async function signIn(
   email: string,
   password: string,
@@ -78,12 +77,10 @@ export async function signIn(
 
 export async function signOut(): Promise<{ error?: string }> {
   const { error } = await supabase.auth.signOut();
-
   if (error) {
     console.error("Error signing out:", error);
     return { error: error.message };
   }
-
   return {};
 }
 

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { supabase } from "@/lib/supabase";
-import TaskGrid from "./TaskGrid";
-import ProgressTracker from "./ProgressTracker";
-import TaskCreationForm from "./TaskCreationForm";
+import TaskGrid from "./dashboard/TaskGrid";
+import ProgressTracker from "./dashboard/ProgressTracker";
+import TaskCreationForm from "./task/TaskCreationForm";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, Star, Trophy } from "lucide-react";
 
 interface Task {
   id: string;
